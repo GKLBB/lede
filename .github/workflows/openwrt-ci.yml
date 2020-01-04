@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # 
 
-name: op
+name: d2
 
 on:
   schedule:
@@ -56,11 +56,8 @@ jobs:
           
       - name: nodogsplash
         run: |
-          cd package
-          mkdir openwrt-packages
-          cd openwrt-package
           git clone git://github.com/nodogsplash/nodogsplash.git
-          cp -rf nodogsplash/openwrt/nodogsplash ../../package/
+          cp -rf nodogsplash/openwrt/nodogsplash package/
           rm -rf nodogsplash/
 
       - name: Update feeds
@@ -191,6 +188,7 @@ jobs:
           # CONFIG_PACKAGE_tree=y
           # CONFIG_PACKAGE_vim-fuller=y
           # CONFIG_PACKAGE_wget=y
+          CONFIG_PACKAGE_nodogsplash=y
           # EOF
 
           # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
