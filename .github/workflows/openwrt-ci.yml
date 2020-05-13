@@ -62,7 +62,11 @@ jobs:
       
       - name: apfree
         run: |
-          git clone https://github.com/songzhu1028/wifidog-auth-luci.git package/wifidog-auth
+          cd package
+          mkdir openwrt-packages
+          cd openwrt-packages
+          git clone https://github.com/songzhu1028/wifidog-auth-luci.git
+          mv wifidog-auth-luci wifidog-auth
           
 
       - name: Update feeds
