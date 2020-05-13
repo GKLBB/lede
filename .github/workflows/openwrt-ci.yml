@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # 
 
-name: x86
+name: D2
 
 on:
   schedule:
@@ -105,9 +105,9 @@ jobs:
 
           # 编译x64固件:
           cat >> .config <<EOF
-          CONFIG_TARGET_x86=y
-          CONFIG_TARGET_x86_64=y
-          CONFIG_TARGET_x86_64_Generic=y
+          CONFIG_TARGET_ramips=y
+          CONFIG_TARGET_ramips_mt7621=y
+          CONFIG_TARGET_ramips_mt7621_DEVICE_d-team_newifi-d2=y
           # CONFIG_TARGET_ramips=y
           # CONFIG_TARGET_ramips_mt7621=y
           # CONFIG_TARGET_ramips_mt7621_DEVICE_d-team_newifi-d2=y
