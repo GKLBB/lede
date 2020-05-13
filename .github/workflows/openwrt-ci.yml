@@ -54,11 +54,16 @@ jobs:
           sudo -E apt-get -y autoremove --purge
           sudo -E apt-get clean
           
-      - name: nodogsplash
+      #- name: nodogsplash
+      #  run: |
+      #    git clone git://github.com/nodogsplash/nodogsplash.git
+      #   cp -rf nodogsplash/openwrt/nodogsplash package/
+      #    rm -rf nodogsplash/
+      
+      - name: apfree
         run: |
-          git clone git://github.com/nodogsplash/nodogsplash.git
-          cp -rf nodogsplash/openwrt/nodogsplash package/
-          rm -rf nodogsplash/
+          git clone https://github.com/songzhu1028/wifidog-auth-luci.git package/wifidog-auth
+          
 
       - name: Update feeds
         run: |
@@ -188,7 +193,8 @@ jobs:
           # CONFIG_PACKAGE_tree=y
           # CONFIG_PACKAGE_vim-fuller=y
           # CONFIG_PACKAGE_wget=y
-          CONFIG_PACKAGE_nodogsplash=y
+          # CONFIG_PACKAGE_nodogsplash=y
+          CONFIG_PACKAGE_wifidog-auth=y
           # EOF
 
           # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
